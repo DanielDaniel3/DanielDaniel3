@@ -1,0 +1,283 @@
+.logo
+{
+    float: left;
+    width: 280px;
+    height: 130;
+    padding-top: 20px;
+    margin-left: 23px; 
+}
+
+.menu
+{
+    display: inline; 
+    font-size: x-small;
+    
+}
+
+
+#menu:ul
+
+{
+ margin: 0;
+ padding: 0; 
+}
+
+#menu li
+{
+    list-style: none;
+    float: right; 
+    position: relative; 
+}
+
+#menu ul li a 
+{
+    color: white;
+    text-decoration: none;
+    width: 150px;
+    height: 30px; 
+    display: block;
+    text-align: center;
+}
+
+#menu ul li a:hover
+{
+    text-decoration: underline;
+    color: orangered
+}
+
+
+h1 u
+{
+    color: orangered;
+}
+
+.inscrpition
+{
+    padding: 20px; 
+    border-radius: 5px;
+    background-color: blue;
+    color: white; 
+    margin-top: 200px; 
+    margin-left: 20px; 
+    box-shadow: inset 0 0 0 0 orangered;
+    transition: ease-out 0.3s;
+}
+
+.inscrpition:hover
+{
+    box-shadow: inset 300px 0 0 0 orangered ;
+    cursor: pointer;
+    color: black;
+}
+
+.ecart1
+{
+    width: 100%;
+    height: 4px;
+    background-color: orangered;
+}
+.ecart2
+{
+    width: 100%;
+    height: 4px;
+    background-color: red;
+}
+.ecart3
+{
+    width: 100%;
+    height: 4px;
+    background-color: green;
+}
+.search-txt
+{
+    border:none; 
+    background: none;
+    outline: none; 
+    float: left;
+    padding: 0;
+    color: white; 
+    font-size: 16px;
+    transition: 0.4s;
+    line-height: 40px;
+    width: 240px;
+    transition: 0.4s; 
+}
+
+#menu ul ul
+{
+     position: absolute;
+     top: 30px; 
+     visibility: hidden;
+}
+
+#menu ul li:hover ul
+{
+    visibility: visible;
+}
+
+li 
+{
+    list-style:none !important;
+    color:#FFFF;
+    padding:10px;
+    font-size:20px;
+    text-decoration:none;
+}
+     
+   
+nav ul
+{
+    background-color: white;
+    padding:0;
+    margin:0;
+}
+     
+nav ul li 
+{
+    list-style: none;
+    line-height:44px;
+    float:right;
+    background-color:#db833b;
+}
+     
+nav ul li a 
+{
+    color:#FFF;
+    padding: 5px;
+    text-decoration:none;
+}
+
+
+
+
+.humour
+{
+    display: flex;
+}
+
+.humour1
+{
+    /*width: 20px;
+    height: 20px;*/
+    margin-right: 80px; 
+    margin-left: 30px;  
+}
+
+.humour2
+{
+    margin-right: 80px; 
+    
+}
+
+video
+{
+    width: 350px;
+    height: 350px;
+    display: flex; 
+}
+
+
+
+.drame
+{
+    display: flex;
+}
+
+.drame1
+{
+    /*width: 20px;
+    height: 20px;*/
+    margin-right: 80px; 
+    margin-left: 30px;  
+}
+
+.drame2
+{
+    margin-right: 80px; 
+    
+}
+
+h1
+{
+    color: orangered;
+    text-decoration: underline;
+    font-size: 30px;
+}
+
+h1:hover
+{
+    text-decoration: none;
+    color: white
+}
+
+
+.nouveau1
+{
+    display: flex;
+}
+
+.nov1
+{
+    /*width: 20px;
+    height: 20px;*/
+    margin-right: 80px; 
+    margin-left: 30px;  
+}
+
+.nov2
+{
+    margin-right: 80px; 
+    
+}
+
+
+.nouveau2
+{
+    display: flex;
+}
+
+.nov21
+{
+    /*width: 20px;
+    height: 20px;*/
+    margin-right: 80px; 
+    margin-left: 30px;  
+}
+
+.nov22
+{
+    margin-right: 80px; 
+    
+}
+
+marquee
+{
+    color: red; 
+}
+marquee:hover
+{
+    color:yellow; 
+}
+
+
+
+*
+{
+    
+    
+    font-family: 'Akaya Kanadaka', cursive;
+    font-size: 20px; 
+}
+
+header
+{
+    color: orangered; 
+}
+
+.conteneur
+{
+    margin: 0; 
+    padding:0;
+    background-color: #101411;
+    color: white; 
+}

@@ -1,0 +1,134 @@
+footer a
+{
+    text-decoration: none;
+    color: black
+}
+
+ul u:hover
+{
+    color: orangered
+}
+
+.part1
+{
+    display: flex;
+    margin-left: 20px; 
+}
+
+.part1 ul
+{
+    margin-left: 20px; 
+
+} 
+
+.part2
+{
+    display: flex;
+    
+}
+
+.equipe
+{
+    margin-left: 32px; 
+}
+.part2 li 
+{
+    margin: 20px; 
+    margin-left: 20px; 
+}
+footer
+{
+    padding-top: 15px; 
+}
+
+.fin
+{
+    display: flex;
+  
+}
+
+.droitsreserves
+{
+    margin-left: 30px; 
+}
+
+
+footer a:hover
+{
+    color: orangered
+}
+
+.email
+{
+    border: unset; 
+    width: 80%
+
+}
+
+.email1
+{
+    margin-right: 10px;
+}
+
+.mot
+{
+    border: unset; 
+    width: 80%;
+
+}
+
+.motpasse
+{
+    margin-right: 10px;
+}
+
+div form hr
+{
+    width: 620px; 
+    color: white; 
+    float: left;
+}
+
+div form input
+{
+    margin-left: 20px; 
+    margin-bottom: 20px;
+}
+
+footer image
+{
+    padding-right: 20px; 
+    width: 15px;
+    width: 15px; 
+}
+.connexion
+{
+    float: left; 
+    margin-left: 30px; 
+}
+
+.envoyer
+{
+    width: 20%; 
+    margin-left: 22px;
+    padding-bottom: 30px;  
+}
+
+footer
+{
+    background-color: grey;
+}
+
+
+.envoyer
+{
+    width: 90px;
+    height: 30px; 
+    background: orangered;
+}
+
+.envoyer:hover
+{
+    background-color: rgb(73, 72, 71);
+    color: white; 
+}

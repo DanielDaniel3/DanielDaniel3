@@ -1,0 +1,142 @@
+#myvideo
+{
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    
+}
+
+.contenu
+{
+  position: fixed;
+  /*background: rgba(230, 165, 113, 0.2);*/
+  color:white;
+  padding-left: 28%;
+  padding-top: 17%;
+  font-size: x-large; 
+  
+
+}
+
+.bouton
+{
+    text-decoration: none;
+    color: white; 
+    border: none;
+    border-radius: 10%;
+    padding: 8px; 
+    background-color: orangered; 
+    outline:none;
+    border: 3px solid green;
+    position: relative;
+    z-index: 1; 
+}
+
+
+.bouton:hover
+{
+  color: white;
+  cursor: pointer;
+}
+
+.bouton::before
+{
+  transition: 0.5s all ease; 
+  position:  absolute; 
+  top:0;
+  left: 50%;
+  right: 58%;
+  bottom: 0;
+  opacity:0;
+  content: "";
+  background-color:red;
+
+}
+
+.bouton:hover::before
+{
+  transition: 0.5s all ease; 
+  left: 0;
+  right: 0;
+  opacity: 1;
+  z-index: -1;  
+}
+
+strong:hover
+{
+    color: olivedrab; 
+    background-color:orangered;
+}
+
+
+.contenu:hover
+{
+  position: fixed;
+  /*background: rgba(230, 165, 113, 0.2);*/
+  color: white;
+  padding-left: 24%;
+  padding-top: 15%;
+  font-size: x-large;
+  
+
+}
+
+marquee
+{
+  font-size: x-large;
+  position: fixed;
+  color: white;
+  font-style: italic;
+}
+
+marquee:hover
+{
+  background-color: red;
+  color: yellow
+}
+
+.coeur
+{
+  height: 20px;
+  width: 30px;
+}  
+
+*
+{
+    font-family: 'Akaya Kanadaka', cursive;
+    font-size: 20px; 
+   
+}
+
+.volly
+{
+  color: red; 
+}
+
+/* Les instructions de media Queries pour un site responsive */
+/*@media [type] [CAR] */
+
+@media(max-width: 700px) {
+  .contenu
+  {
+    margin-top: 40px
+  }
+  video
+  {
+    width: 50%;
+    height: 50%;
+  }
+  .volly
+  {
+    color: green; 
+  }
+}
+
+/*@media print {
+  h1{
+    color: red;  
+  }
+}
+*/

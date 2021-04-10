@@ -1,0 +1,190 @@
+<!DOCTYE html>
+<html>
+    <head>
+        <title> Vollywood </title>
+        <meta charset="utf-8"/>
+        <link rel="stylesheet" href="css/acceuil.css">
+        <link href="https://fonts.googleapis.com/css2?family=Akaya+Kanadaka&display=swap" rel="stylesheet">
+        <link href="css/footer.css" rel="stylesheet" />
+        <link href="css/header.css" rel="stylesheet" />
+        <link rel="shortcut icon" icon="image/x-icon" href="favicon.ico" />
+    </head>
+    <body>
+        <header>
+            <div class="entete">
+            <img src="Media/VollywoodLog.jpg" class="logo" title="Notre logo " />
+            <div id="menu">
+                <ul class="menu1">
+                    <li>  <a href="contact.html" title="Nous contacter "> Contact </a> </li>
+                    <li>  <a href="SommesNous.html" title=" Présentation " >Qui sommes nous </a> </li>
+                     
+                    
+                     <li>  <a href="galerie.html" title="Galerie"> Galerie </a> </li>
+                     
+                     <li> 
+                        <a href="Domaines.html" title="Nos domaines d'intervention "> Domaines </a> 
+                           <ul> 
+                                <li> <a href="Domaines.html" title="Genre humouristique "> Humour  </a></li>
+                                <li> <a href="Domaines.html" title="Genre dramatique "> Drame  </a></li>
+                                <li> <a href="Domaines.html" title="Autres "> Autres  </a></li>
+                            </ul>
+                     </li>
+                     <li> <a href="acceuil.html" title="Acceuil "> Acceuil </a> 
+                          <ul> 
+                              <li> <a href="Bienvenue.html" title="La première acceuil de notre site "> Bienvenue </a></li>
+                              <li> <a href="acceuil.html" title="Notre page d'acceuil "> Acceuil </a></li>
+                          </ul>
+                    </li>
+                </ul>
+            </div>
+            <button class="btn" type="button" id="Button"> s'inscrire </button>
+            <div class="search-box">
+                <input class="search" type="text" name="recherche" placeholder="Recherher">
+            </div>
+           
+        </header>
+            <div class="container"> 
+                <img src="Media/FondInterprete2.jpg" alt=" Le meilleur du cinema ivoirien " class="imagefond"/>
+                    <div class="cinema">
+                        <div >  100% du cinema ivoirien disponible et à portée de main </div>
+                        
+                        <div class="base">
+                            <div> <a href="#footer" class="connect"> Connexion </a></div>
+                        </div>
+                        
+                </div>
+            </div>
+       
+            
+        </div>
+        <div class="page2"> 
+        <marquee class="vollywood"> --- Vollywood , le meilleur cinema d'afrique francophone --- </marquee>
+
+        <br /><br /><br />
+            
+        <div class="popup">
+            <div class="popup1">
+                <div class="close">
+                 <a href="acceuil.php" title="fermer "> * </a>
+                </div>
+                <img src="Media/connexion1.png" alt="">
+                <form action="acceuil.php" class="form">
+                    <input type="text" placeholder="Nom" required>
+                    <input type="text" placeholder="E-mail" required >
+                    <input type="text" placeholder="mot de passe" required>
+                    <a href="acceuil.html" class="button"> Inscription </a>
+                </form>
+            </div>
+        </div>
+        <div class="partie1">
+        <div class="partie11">
+        <img name="diapo" width="600" height="300" class="diapo">
+        <script>
+            var images=[];
+            images[0]="Aubout2.jpg";
+            images[1]="Aphasie.jpg";
+            images[2]="MaGrandeFamille.png";
+            //images[3]="";
+            var i=0;
+            var timer = 3000;
+
+            function changerimage()
+            {
+                document.diapo.src=images[i];
+                if(i<images.length-1)
+                {
+                    i++;
+                }
+                else
+                {
+                    i=0;
+                }
+                setTimeout("changerimage()",timer);
+            }
+            window.onload=changerimage(); 
+        </script>
+        </div>
+        <div class="series">
+            <center> <h1> <u> Les meilleures productions ivoiriennes </u> </h1></center> <br /><br />
+            Les meilleurs séries ivoiriennes qui ont sécoués l'afrique et le monde entier<br /> 
+            <u><strong><< Jusqu'au bout >> </strong></u> primé meilleur film francophone au nigeria en 2019.<br />
+            <u><strong> « APHASIE, la révolte de Dantra »</strong> </u> a été récompensé à la 25è édition du Festival Panafricain du Cinéma de Ouagadougou avant même sa sortie officielle.<br /> 
+            Et pour finir <u><strong> « Ma grande Famille </strong> </u> un ure chef d'oeurvre ivoirien qui vous laissera sans voix .  
+        </div>
+    </div>
+    </div>
+    </div>
+    <center>  </center> 
+        <div id="services">
+        <div class="service11">
+        <div class="service1">
+            <h1> <u> Nos services </u> </h1>
+            <ol>
+                <li> 1- Ouverture de salles de cinéma ivoiriens dans les grandes villes </li> 
+                <li> 2- Suivre tes séries ivoiriennes en ligne  </li>
+                <li> 3- Trouver des investisseurs des projets de cinema en cours </li>
+                <li> 4- Communiquer les nouvelles opportinuités de casting  </li>
+                <li> 5- Réguler le secteur du casting pour éviter les arnaques </li>
+            </ol><br /><br />
+            <a href="contact.html" class="contact22"> Nous contacter  </a><br /><br /><br />
+        </div>
+        </div class="service2">
+        <img src="Media/teatre2.jpg"  title="Nos différents services "  class="teatre2"/>
+        </div>
+        <script>
+            document.getElementById('Button').addEventListener('click',
+                function()
+                {
+                    document.querySelector('.popup').style.display='flex'; 
+                })
+
+                document.querySelector('.close').addEventListener('click',
+                function() {
+                    document.query('.popup').display='none';
+                })
+        </script>
+        <div>
+           
+        </div>
+    <footer id="footer">
+        <div class="connexion">
+            <center>  <h2> <u> Connexion </u> </h2> </center>
+            <form> 
+                <label class="email1"><u> email </u>  </label> <input type="text" class="email"/><br />
+               
+                <label class="motpasse"><u> mot de passe </u> </label> <input type="password" class="mot"/><br />
+                
+                <input type="submit" value="Envoyer" class="envoyer"> 
+            </form>
+
+        </div>
+        <div class="contact"> 
+        <div class="part1"> 
+            <ul> <u> Vollywood </u> </ul> 
+            <li> <a href="#"> <img src="Media/footer/telephone.png" title="Notre telephone"/> 07 69 24 84 45  </a></li>
+            <li> <a href="#"> <img src="Media/footer/gmail.png" title="Nous contacter par mail"/> vollywood@gmail.com </li>
+        </div>
+        <div class="part2"> 
+            <li> <a href="#" title=" Des information sur notre équipe " class="equipe"> Notre équipe   </a></li>
+            <li> <a href="#" title=" Des information sur notre logo "> Le Logo  </a></li>
+            <li> <a href="#" title=" Des information sur notre site  "> Plan du site  </li>
+        </div>
+        
+        <hr />
+
+        
+        <div class="droitsreserves">
+            28/09/21 Tout droit réservés 
+        </div>
+        <center>
+            <span class="suivre"> Suivez nous sur </span>
+            <ul class="fin">
+                <li> <a href="#"> <img src="Media/footer/facebook.png">  </a> </li>
+                <li> <a href="#"> <img src="Media/footer/twitter.png">  </a> </li>
+                <li> <a href="#"> <img src="Media/footer/instagram.png">  </a> </li>
+            </ul>
+        </center>
+       </div>
+    </footer>
+    </body>
+</html>

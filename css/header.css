@@ -1,0 +1,88 @@
+.logo
+{
+    float: left;
+    width: 280px;
+    height: 130;
+    padding-top: 20px;
+    margin-left: 23px; 
+}
+
+.menu
+{
+    display: inline; 
+    font-size: x-small;
+    
+}
+
+
+#menu:ul
+
+{
+ margin: 0;
+ padding: 0; 
+}
+
+#menu li
+{
+    list-style: none;
+    float: right; 
+    position: relative; 
+}
+
+#menu ul li a 
+{
+    color: black;
+    text-decoration: none;
+    width: 150px;
+    height: 30px; 
+    display: block;
+    text-align: center;
+}
+
+#menu ul ul
+{
+     position: absolute;
+     top: 30px; 
+     visibility: hidden;
+}
+
+#menu ul li:hover ul
+{
+    visibility: visible;
+}
+
+li 
+{
+    list-style:none !important;
+    padding:10px;
+    font-size:20px;
+    text-decoration:none;
+}
+     
+   
+nav ul
+{
+    background-color:#04090f;
+    padding:0;
+    margin:0;
+}
+     
+nav ul li 
+{
+    list-style: none;
+    line-height:44px;
+    float:right;
+  
+}
+     
+nav ul li a 
+{
+    color:#FFF;
+    padding: 5px;
+    text-decoration:none;
+}
+
+header
+{
+    background-color: orangered;
+}

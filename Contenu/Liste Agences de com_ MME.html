@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<!-- saved from url=(0064)http://www.gnsprod.raidghost.com/magexpress/pages/article16.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Liste Agences de com| MME</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="./Liste Agences de com_ MME_files/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="./Liste Agences de com_ MME_files/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="./Liste Agences de com_ MME_files/animate.css">
+<link rel="stylesheet" type="text/css" href="./Liste Agences de com_ MME_files/slick.css">
+<link rel="stylesheet" type="text/css" href="./Liste Agences de com_ MME_files/theme.css">
+<link rel="stylesheet" type="text/css" href="./Liste Agences de com_ MME_files/style.css">
+<!--[if lt IE 9]>
+<script src="../assets/js/html5shiv.min.js"></script>
+<script src="../assets/js/respond.min.js"></script>
+<![endif]-->
+<script id="totlautoplay" type="text/javascript">//================================================
+/*
+
+Turn Off the Lights
+The entire page will be fading to dark, so you can watch the video as if you were in the cinema.
+Copyright (C) 2020 Stefan vd
+www.stefanvd.net
+www.turnoffthelights.com
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+
+
+To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.0/
+
+*/
+//================================================
+
+(ytCinema = {
+	players: {objs: [], active: 0},
+	messageEvent: new Event('ytCinemaMessage'),
+	playerStateChange: function(stateId){
+		var message = document.getElementById("ytCinemaMessage"),
+			stateIO = "playerStateChange:".concat(stateId);
+		// console.log("Debug " + message.textContent + " " +stateIO);
+		if(message && message.textContent !== stateIO){
+			message.textContent = stateIO;
+			message.dispatchEvent(ytCinema.messageEvent);
+		}
+	},
+	initialize: function(){
+		this.messageEvent;
+		window.addEventListener("load", initvideoinject, false);
+        document.addEventListener("DOMContentLoaded", initvideoinject, false);
+		initvideoinject();
+ 
+ 		// New Mutation Summary API Reference
+ 		var MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
+ 		if(MutationObserver){
+ 		// setup MutationSummary observer
+ 		var videolist = document.querySelector('body');
+ 		var observer = new MutationObserver(function(mutations, observer){
+ 		    mutations.forEach(function(mutation){
+ 		        if(mutation.target.tagName == "VIDEO"){
+ 		            if(mutation.attributeName === "src"){
+ 		                initvideoinject();
+ 		            }
+ 		        }
+ 		        if(typeof mutation.addedNodes == "VIDEO" || typeof mutation.removedNodes == "VIDEO"){
+ 		            initvideoinject();
+ 		        }
+ 		    });
+        });
+ 
+ 		observer.observe(videolist, {
+                  subtree: true,       // observe the subtree rooted at ...videolist...
+                  childList: true,     // include childNode insertion/removals
+                  characterData: false, // include textContent changes
+                  attributes: true     // include changes to attributes within the subtree
+                  });
+ 		}else{
+ 		// setup DOM event listeners
+ 		document.addEventListener("DOMNodeRemoved", initvideoinject, false);
+ 		document.addEventListener("DOMNodeInserted", initvideoinject, false);
+ 		}
+
+		function initvideoinject(e){
+			var youtubeplayer = document.getElementById("movie_player") || null;
+			var htmlplayer = document.getElementsByTagName("video") || false;
+			
+			if(youtubeplayer !== null){ // YouTube video element
+				var interval = window.setInterval(function(){
+					if(youtubeplayer.pause || youtubeplayer.pauseVideo){
+						window.clearInterval(interval);
+						if(youtubeplayer.pauseVideo){youtubeplayer.addEventListener("onStateChange", "ytCinema.playerStateChange");}
+					}
+				}, 10);
+			}
+			if(htmlplayer && htmlplayer.length > 0){ // HTML5 video elements
+				var setPlayerEvents = function(players){
+					var j;
+					var l = players.length;
+					for(j=0; j<l; j++){
+						(function(o, p){
+							var ev = {
+								pause: function(){if(!p.ended){o.players.active -= 1;}if(o.players.active < 1){o.playerStateChange(2);}},
+								play: function(){o.players.active += 1;o.playerStateChange(1);},
+								ended: function(){o.players.active -= 1;if(o.players.active < 1){o.playerStateChange(0);}}
+							};
+							p.removeEventListener("pause", ev.pause); p.removeEventListener("play", ev.play); p.removeEventListener("ended", ev.ended);
+							
+							p.addEventListener("pause", ev.pause);
+							p.addEventListener("play", ev.play);
+							p.addEventListener("ended", ev.ended);
+							o.players.objs.push(p);
+						}(this.ytCinema, htmlplayer[j]));
+					}
+				};
+				
+				setPlayerEvents(htmlplayer);
+ 
+				(function(o){		
+					var triggerDOMChanges = function(){
+						var htmlplayer = document.getElementsByTagName("video") || null;
+						
+						if(htmlplayer == null || htmlplayer.length === 0){o.players.active = 0; if(o.players.active < 1){o.playerStateChange(0);} return;}
+						
+						o.players.active = 0;
+						
+						var j;
+						var l = htmlplayer.length;
+						for(j=0; j<l; j++){
+							if(!htmlplayer[j].paused && !htmlplayer[j].ended){
+								o.players.active += 1;
+							}
+						}
+						if(o.players.active < 1){o.playerStateChange(0);}
+						
+						setPlayerEvents(htmlplayer);
+					};				
+
+				}(this.ytCinema));
+			}
+		}
+	}
+}).initialize();</script></head>
+<body style="overflow: visible;">
+<div id="preloader" style="display: none;">
+  <div id="status" style="display: none;">&nbsp;</div>
+</div>
+<a class="scrollToTop" href="http://www.gnsprod.raidghost.com/magexpress/pages/article16.html#" style="display: block;"><i class="fa fa-angle-up"></i></a>
+<div class="container">
+   <header id="header">
+    <div class="row">
+      <div class="col-lg-12 col-md-12">
+        <div class="header_top">
+          <div class="header_top_left">
+            <ul class="top_nav">
+              <li><a href="http://www.gnsprod.raidghost.com/magexpress/index.html">Accueil</a></li>
+              <li><a href="http://www.gnsprod.raidghost.com/magexpress/pages/apropos.html">A propos</a></li>
+              <li><a href="http://www.gnsprod.raidghost.com/magexpress/pages/contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <div class="header_top_right">
+            <form action="http://www.gnsprod.raidghost.com/magexpress/pages/article16.html#" class="search_form">
+              <input type="text" placeholder="Taper votre recherche">
+              <input type="submit" value="">
+            </form>
+          </div>
+        </div>
+        <div class="header_bottom">
+          <div class="header_bottom_left"><a class="logo" href="http://www.gnsprod.raidghost.com/magexpress/index.html"><img src="./Liste Agences de com_ MME_files/logo.png" width="250" height="130"></a></div>
+        <!-- banniere pub haut -->
+		<div class="header_bottom_right"><a href="http://www.gnsprod.raidghost.com/magexpress/pages/article16.html#"><img src="./Liste Agences de com_ MME_files/addbanner_728x90_V1.jpg" alt=""></a></div>
+        <!-- fin banniere pub -->
+		</div>
+      </div>
+    </div>
+  </header>
+  <div id="navarea">
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav custom_nav">
+            <li class="dropdown"> <a href="http://www.gnsprod.raidghost.com/magexpress/pages/article16.html#" class="" data-toggle="dropdown" role="button" aria-expanded="false">TELEVISIONS</a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="http://www.gnsprod.raidghost.com/magexpress/pages/tv_prog.html">PROGRAMMES</a></li>
+                <li><a href="http://www.gnsprod.raidghost.com/magexpress/pages/audimate_tv.html">AUDIMATE</a></li>
+                <li><a href="http://www.gnsprod.raidghost.com/magexpress/pages/grille_tv.html">VOIR LA GRILLE</a></li>
+                <li><a href="http://www.gnsprod.raidghost.com/magexpress/pages/cast_recrut.html">Casting/recrutement</a></li>
+              </ul>
+            </li>
+    <li class="dropdown"> <a href="http://www.gnsprod.raidghost.com/magexpress/pages/article16.html#" class="" data-toggle="dropdown" role="button" aria-expanded="false">RADIOS</a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="http://www.gnsprod.raidghost.com/magexpress/pages/news_radio.html">LES NEWS</a></li>
+                <li><a href="http://www.gnsprod.raidghost.com/magexpress/pages/grille_radio.html">VOIR LA GRILLE</a></li>
+                <li><a href="http://www.gnsprod.raidghost.com/magexpress/pages/cast_recrut.html">Casting/recrutement</a></li>
+              </ul>
+            </li>
+            <li><a href="http://www.gnsprod.raidghost.com/magexpress/pages/star_media.html">HORS CAMERAS/MICROS</a></li>
+           <li class=""><a href="http://www.haca.ci/" target="_blank">CREER VOTRE MEDIAS</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <section id="mainContent">
+    <div class="content_bottom">
+      <div class="col-lg-8 col-md-8">
+        <div class="content_bottom_left">
+          <div class="single_page_area">
+            <ol class="breadcrumb">
+              <li><a href="http://www.gnsprod.raidghost.com/magexpress/index.html">Accueil</a></li>
+              <li class="active">Agences de communication</li>
+            </ol>
+            <h2 class="post_titile">Liste des agence de production audiovisuelle basées à Abidjan</h2>
+            <div class="single_page_content">
+              <div class="post_commentbox"> <a href="http://www.gnsprod.raidghost.com/magexpress/pages/article16.html#"><i class="fa fa-user"></i>Noel SIDIBE</a> <span><i class="fa fa-calendar"></i>22:30</span> <a href="http://www.gnsprod.raidghost.com/magexpress/pages/article16.html#"><i class="fa fa-tags"></i>Audiovisuel</a> </div>
+              <img class="img-center" src="./Liste Agences de com_ MME_files/550x330x6.jpg" alt="">
+              <p>Bonjour à Tous. Voici une énumération exaustive des agences de communication et de production audiovisuelle basée en Cote d'ivoire. </p>Il faut signaler que ce n'est pas un classement en que telle mais une liste dans tous les ordres de ces agences.
+			  <p>On commence par <br><br><strong>NIKADYS PRODUCTION</strong> Une société qui fait dans Production Audiovisuelle, Sots publicitaires, Films institutionnels, Reportages, Captation d’événementiels, Production d'émissions PAD. <br> Adresse: Cité Alabra, Riviéra 3 Tel: 22 4064 95</p><p>
+              </p><blockquote>&nbsp;</blockquote>
+              <p><strong>AKACIA PRODUCTION</strong> entreprise crée en 2009. Nous intervenons dans le casting-la communication-la production audiovisuelle et l'evenementiel <br>
+			  Adresse: Phrcie Snte Marthe Robin, Imb Akacia, Riviéra palmeraie Tel: 22 00 41 96</p>
+			  <p><strong>SONY</strong> intervent dans la production audiovisuelle et l'evenementiel, la location de matériels vidéo et audio <br>
+			  Adresse: Centre commercial Cap Nord  Tel: 22 47 27 77</p>
+			  <p><strong>DANA</strong> Photo Professionnel et Vente de Produit 3G+  <br>
+			  Adresse: Bd latrille Angré les Oscars Tel: 22 52 57 61 </p>
+			  <p> <strong>MULTIMEDIA SERVICE</strong> Vente d'appareils électroniques, informatiques et audio-visuels Import et export Négoce  <br>
+			  Adresse: Treichville rue 12 face à la marie  Tel: 21 24 37 04</p>
+			  <p><strong>WARRIORS MUSIC PROD</strong>Detection de nouveau talent, production audiovisuelle, evenementiel  <br>
+			  Adresse: Perles 2, 2 plateaux  Tel: 05 31 68 72</p>
+			  <blockquote>&nbsp;</blockquote>
+			  <p><strong>AFRICAN BROADCAST SERVICE</strong> Prestation de services multi-caméras, ingénierie, intégration de systèmes AV, formation.  <br>
+			  Adresse: Résidence Alabra villa 122 Riviéra 3  Tel: 22 47 69 78 </p>
+			  <p><strong>AFRIKA TOON</strong> Animation Studio  <br>
+			  Adresse: iMM Valérie, Appartement A 22  Tel: 22 41 34 48 </p>
+			  <p><strong>AFROZONE MULTIMEDIA</strong> vente et installation d'équipement audiovisuel, configuration de salle de conférence, meeting room, affichage dynamique, création graphique 2D et 3D, intégrateur de solution web  <br>
+			  Adresse: Angré 7e Tranche  Tel: 55 38 75 35 </p>
+			  <p> <strong>CAPTIVPRO MEDIA</strong> Une agence composée de professionnels de l’audiovisuel Une équipe qualifiée, dynamique et polyvalente qui vous apporte son savoir-faire sur tous les types de projets vidéos et multimédias : cinéma, publicité, film d’entreprise, clips vidéos, shootings, lives Facebook, podcast, rich media, etc.  <br>
+			  Adresse: Terminus 27 route Azito Cité laurier 16  Tel: 23 45 62 42</p>
+			  <p><strong>CEFEX PRODUCTEL</strong> est un structure spécialisé dans la communication visuelle : Production Audiovisuelle et Évènementiel  <br>
+			  Adresse: Riviéra Bonoumin Rond point ADO  Tel: 49 23 29 21 </p>
+			  <p> <strong>CIBLE</strong> Edition - Publicité - Régie publicitaire - Événementiel - Imprimerie - Construction  <br>
+			  Adresse: Rue des majorettes, Biétry, Marcory  Tel: 22 00 41 96</p>
+             <p>Voir plus <a href="https://www.goafricaonline.com/ci/annuaire/societes-audiovisuel?p=1" target="_blank">Cliquez ici</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="post_pagination">
+          <div class="prev"> <a class="angle_left" href="http://www.gnsprod.raidghost.com/magexpress/pages/article15.html"><i class="fa fa-angle-double-left"></i></a>
+            <div class="pagincontent"> <span>Précédent</span> <a href="http://www.gnsprod.raidghost.com/magexpress/pages/article15.html">&nbsp;</a> </div>
+          </div>
+          <div class="next">
+            <div class="pagincontent"> <span>Suivant</span> <a href="http://www.gnsprod.raidghost.com/magexpress/pages/article17.html">&nbsp;</a> </div>
+            <a class="angle_right" href="http://www.gnsprod.raidghost.com/magexpress/pages/article17.html"><i class="fa fa-angle-double-right"></i></a> </div>
+        </div>
+        <div class="share_post"> <a class="facebook" href="http://www.gnsprod.raidghost.com/magexpress/pages/article16.html#"><i class="fa fa-facebook"></i>Facebook</a> <a class="twitter" href="http://www.gnsprod.raidghost.com/magexpress/pages/article16.html#"><i class="fa fa-twitter"></i>Twitter</a> </div>
+        <div class="similar_post">
+          <h2>Vous pourriez aimer&nbsp; <i class="fa fa-thumbs-o-up"></i></h2>
+          <!-- <ul class="small_catg similar_nav wow fadeInDown animated"> -->
+            <!-- <li> -->
+              <!-- <div class="media wow fadeInDown animated" style="visibility: visible; animation-name: fadeInDown;"> <a class="media-left related-img" href="#"><img src="../images/112x112.jpg" alt=""></a> -->
+                <!-- <div class="media-body"> -->
+                  <!-- <h4 class="media-heading"><a href="#">Duis condimentum nunc pretium lobortis </a></h4> -->
+                  <!-- <p>Nunc tincidunt, elit non cursus euismod, lacus augue ornare metus, egestas imperdiet nulla nisl quis mauris. Suspendisse a pharetra </p> -->
+                <!-- </div> -->
+              <!-- </div> -->
+            <!-- </li> -->
+            <!-- <li> -->
+              <!-- <div class="media wow fadeInDown animated" style="visibility: visible; animation-name: fadeInDown;"> <a class="media-left related-img" href="#"><img src="../images/112x112.jpg" alt=""></a> -->
+                <!-- <div class="media-body"> -->
+                  <!-- <h4 class="media-heading"><a href="#">Duis condimentum nunc pretium lobortis </a></h4> -->
+                  <!-- <p>Nunc tincidunt, elit non cursus euismod, lacus augue ornare metus, egestas imperdiet nulla nisl quis mauris. Suspendisse a pharetra </p> -->
+                <!-- </div> -->
+              <!-- </div> -->
+            <!-- </li> -->
+            <!-- <li> -->
+              <!-- <div class="media wow fadeInDown animated" style="visibility: visible; animation-name: fadeInDown;"> <a class="media-left related-img" href="#"><img src="../images/112x112.jpg" alt=""></a> -->
+                <!-- <div class="media-body"> -->
+                  <!-- <h4 class="media-heading"><a href="#">Duis condimentum nunc pretium lobortis </a></h4> -->
+                  <!-- <p>Nunc tincidunt, elit non cursus euismod, lacus augue ornare metus, egestas imperdiet nulla nisl quis mauris. Suspendisse a pharetra </p> -->
+                <!-- </div> -->
+              <!-- </div> -->
+            <!-- </li> -->
+          <!-- </ul> -->
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-4">
+        <div class="content_bottom_right">
+          <div class="single_bottom_rightbar">
+            <h2>Articles récents</h2>
+            <!-- <ul class="small_catg popular_catg wow fadeInDown"> -->
+              <!-- <li> -->
+                <!-- <div class="media wow fadeInDown"> <a href="#" class="media-left"><img alt="" src="../images/112x112.jpg"> </a> -->
+                  <!-- <div class="media-body"> -->
+                    <!-- <h4 class="media-heading"><a href="#">Duis condimentum nunc pretium lobortis </a></h4> -->
+                    <!-- <p>Nunc tincidunt, elit non cursus euismod, lacus augue ornare metus, egestas imperdiet nulla nisl quis mauris. Suspendisse a pharetra </p> -->
+                  <!-- </div> -->
+                <!-- </div> -->
+              <!-- </li> -->
+              <!-- <li> -->
+                <!-- <div class="media wow fadeInDown"> <a href="#" class="media-left"><img alt="" src="../images/112x112.jpg"> </a> -->
+                  <!-- <div class="media-body"> -->
+                    <!-- <h4 class="media-heading"><a href="#">Duis condimentum nunc pretium lobortis </a></h4> -->
+                    <!-- <p>Nunc tincidunt, elit non cursus euismod, lacus augue ornare metus, egestas imperdiet nulla nisl quis mauris. Suspendisse a pharetra </p> -->
+                  <!-- </div> -->
+                <!-- </div> -->
+              <!-- </li> -->
+              <!-- <li> -->
+                <!-- <div class="media wow fadeInDown"> <a href="#" class="media-left"><img alt="" src="../images/112x112.jpg"> </a> -->
+                  <!-- <div class="media-body"> -->
+                    <!-- <h4 class="media-heading"><a href="#">Duis condimentum nunc pretium lobortis </a></h4> -->
+                    <!-- <p>Nunc tincidunt, elit non cursus euismod, lacus augue ornare metus, egestas imperdiet nulla nisl quis mauris. Suspendisse a pharetra </p> -->
+                  <!-- </div> -->
+                <!-- </div> -->
+              <!-- </li> -->
+            <!-- </ul> -->
+          </div>
+          <div class="single_bottom_rightbar">
+            <ul role="tablist" class="nav nav-tabs custom-tabs">
+              <li class="active" role="presentation"><a data-toggle="tab" role="tab" aria-controls="home" href="http://www.gnsprod.raidghost.com/magexpress/pages/article16.html#mostPopular">Les plus lus</a></li>
+              <li role="presentation"><a data-toggle="tab" role="tab" aria-controls="messages" href="http://www.gnsprod.raidghost.com/magexpress/pages/article16.html#recentComent">Commentaires</a></li>
+            </ul>
+            <div class="tab-content">
+              <div id="mostPopular" class="tab-pane fade in active" role="tabpanel">
+                <!-- <ul class="small_catg popular_catg wow fadeInDown"> -->
+                  <!-- <li> -->
+                    <!-- <div class="media wow fadeInDown"> <a class="media-left" href="#"><img src="../images/112x112.jpg" alt=""></a> -->
+                      <!-- <div class="media-body"> -->
+                        <!-- <h4 class="media-heading"><a href="#">Duis condimentum nunc pretium lobortis </a></h4> -->
+                        <!-- <p>Nunc tincidunt, elit non cursus euismod, lacus augue ornare metus, egestas imperdiet nulla nisl quis mauris. Suspendisse a pharetra </p> -->
+                      <!-- </div> -->
+                    <!-- </div> -->
+                  <!-- </li> -->
+                  <!-- <li> -->
+                    <!-- <div class="media wow fadeInDown"> <a class="media-left" href="#"><img src="../images/112x112.jpg" alt=""></a> -->
+                      <!-- <div class="media-body"> -->
+                        <!-- <h4 class="media-heading"><a href="#">Duis condimentum nunc pretium lobortis </a></h4> -->
+                        <!-- <p>Nunc tincidunt, elit non cursus euismod, lacus augue ornare metus, egestas imperdiet nulla nisl quis mauris. Suspendisse a pharetra </p> -->
+                      <!-- </div> -->
+                    <!-- </div> -->
+                  <!-- </li> -->
+                  <!-- <li> -->
+                    <!-- <div class="media wow fadeInDown"> <a class="media-left" href="#"><img src="../images/112x112.jpg" alt=""></a> -->
+                      <!-- <div class="media-body"> -->
+                        <!-- <h4 class="media-heading"><a href="#">Duis condimentum nunc pretium lobortis </a></h4> -->
+                        <!-- <p>Nunc tincidunt, elit non cursus euismod, lacus augue ornare metus, egestas imperdiet nulla nisl quis mauris. Suspendisse a pharetra </p> -->
+                      <!-- </div> -->
+                    <!-- </div> -->
+                  <!-- </li> -->
+                <!-- </ul> -->
+              </div>
+              <div id="recentComent" class="tab-pane fade" role="tabpanel">
+                <!-- <ul class="small_catg popular_catg"> -->
+                  <!-- <li> -->
+                    <!-- <div class="media wow fadeInDown"> <a class="media-left" href="#"><img src="../images/112x112.jpg" alt=""></a> -->
+                      <!-- <div class="media-body"> -->
+                        <!-- <h4 class="media-heading"><a href="#">Duis condimentum nunc pretium lobortis </a></h4> -->
+                        <!-- <p>Nunc tincidunt, elit non cursus euismod, lacus augue ornare metus, egestas imperdiet nulla nisl quis mauris. Suspendisse a pharetra </p> -->
+                      <!-- </div> -->
+                    <!-- </div> -->
+                  <!-- </li> -->
+                  <!-- <li> -->
+                    <!-- <div class="media wow fadeInDown"> <a class="media-left" href="#"><img src="../images/112x112.jpg" alt=""></a> -->
+                      <!-- <div class="media-body"> -->
+                        <!-- <h4 class="media-heading"><a href="#">Duis condimentum nunc pretium lobortis </a></h4> -->
+                        <!-- <p>Nunc tincidunt, elit non cursus euismod, lacus augue ornare metus, egestas imperdiet nulla nisl quis mauris. Suspendisse a pharetra </p> -->
+                      <!-- </div> -->
+                    <!-- </div> -->
+                  <!-- </li> -->
+                  <!-- <li> -->
+                    <!-- <div class="media wow fadeInDown"> <a class="media-left" href="#"><img src="../images/112x112.jpg" alt=""></a> -->
+                      <!-- <div class="media-body"> -->
+                        <!-- <h4 class="media-heading"><a href="#">Duis condimentum nunc pretium lobortis </a></h4> -->
+                        <!-- <p>Nunc tincidunt, elit non cursus euismod, lacus augue ornare metus, egestas imperdiet nulla nisl quis mauris. Suspendisse a pharetra </p> -->
+                      <!-- </div> -->
+                    <!-- </div> -->
+                  <!-- </li> -->
+                <!-- </ul> -->
+              </div>
+            </div>
+          </div>
+          <div class="single_bottom_rightbar">
+            <h2>Archives</h2>
+            <div class="blog_archive wow fadeInDown animated" style="visibility: visible; animation-name: fadeInDown;">
+              <form action="http://www.gnsprod.raidghost.com/magexpress/pages/article16.html#">
+                <select>
+                  <option value="">Articles anciens</option>
+                  <option value="">Decembre(0)</option>
+                </select>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+<!-- DEBUT CODE FOOTER -->
+<footer id="footer">
+  <div class="footer_top">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-4">
+          <div class="single_footer_top wow fadeInLeft animated" style="visibility: visible; animation-name: fadeInLeft;">
+            <h2>Vidéo à la Une</h2>
+            <!-- <ul class="flicker_nav">
+              <li><a href="#"><img src="images/75x75.jpg" alt=""></a></li>
+              <li><a href="#"><img src="images/75x75.jpg" alt=""></a></li>
+              <li><a href="#"><img src="images/75x75.jpg" alt=""></a></li>
+              <li><a href="#"><img src="images/75x75.jpg" alt=""></a></li>
+              <li><a href="#"><img src="images/75x75.jpg" alt=""></a></li>
+              <li><a href="#"><img src="images/75x75.jpg" alt=""></a></li>
+              <li><a href="#"><img src="images/75x75.jpg" alt=""></a></li>
+              <li><a href="#"><img src="images/75x75.jpg" alt=""></a></li>
+            </ul> -->
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4">
+          <div class="single_footer_top wow fadeInDown animated" style="visibility: visible; animation-name: fadeInDown;">
+            <h2>A VOIR AUSSI</h2>
+            <ul class="labels_nav">
+              <li><a href="http://www.gnsprod.raidghost.com/magexpress/pages/article16.html#">Gallery</a></li>
+              <li><a href="http://www.gnsprod.raidghost.com/magexpress/pages/article16.html#">Business</a></li>
+              <li><a href="http://www.gnsprod.raidghost.com/magexpress/pages/article16.html#">Télévision</a></li>
+              <li><a href="http://www.gnsprod.raidghost.com/magexpress/pages/article16.html#">Radio</a></li>
+              <li><a href="http://www.gnsprod.raidghost.com/magexpress/pages/article16.html#">Sports</a></li>
+              <li><a href="http://www.gnsprod.raidghost.com/magexpress/pages/article16.html#">Musique</a></li>
+              <li><a href="http://www.gnsprod.raidghost.com/magexpress/pages/article16.html#">Cinema</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4">
+          <div class="single_footer_top wow fadeInRight animated" style="visibility: visible; animation-name: fadeInRight;">
+            <h2>C'est quoi MME</h2>
+            <p>Média Mag Express est la no 1 des magazines en ligne qui vous fournit toute l'actualité sur l'audiovisuel en Côte d'Ivoire. Les News des médias radios et télévisions et de tout ce qui les fait. </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer_bottom">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <div class="footer_bottom_left">
+            <p>Copyright © 2017 <a href="http://www.gnsprod.raidghost.com/magexpress/pages/index.html">Media Mag Express</a></p>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <div class="footer_bottom_right">
+            <p>mme une conception<a href="http://www.gnsprod.ml/"> GNSPROD</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- FIN FOOTER -->
+<script src="./Liste Agences de com_ MME_files/jquery.min.js.download"></script> 
+<script src="./Liste Agences de com_ MME_files/bootstrap.min.js.download"></script> 
+<script src="./Liste Agences de com_ MME_files/wow.min.js.download"></script> 
+<script src="./Liste Agences de com_ MME_files/slick.min.js.download"></script> 
+<script src="./Liste Agences de com_ MME_files/custom.js.download"></script>
+
+<div id="ytCinemaMessage" style="display: none;"></div><label id="stefanvdnighttheme" style="left: 25px; bottom: 25px;" class=""><input type="checkbox" id="stefanvdnightthemecheckbox"><span id="stefanvdnightthemeslider"><span class="sun"><span></span></span><span class="night"><span></span></span><span id="sliderblock"><span id="stefanvdnighti" class="turnoffthelightsdrag">≡</span></span></span></label></body></html>
